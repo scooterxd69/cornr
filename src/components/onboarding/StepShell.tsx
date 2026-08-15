@@ -33,8 +33,9 @@ export default function StepShell({
   const progress = ((step + 1) / totalSteps) * 100;
 
   return (
-    <div className="min-h-screen bg-chalk">
-      <div className="border-b border-ink/10">
+    <div className="relative min-h-screen overflow-hidden bg-chalk">
+      <div className="ambient-grid pointer-events-none absolute inset-0 opacity-40" />
+      <div className="relative border-b border-white/10 bg-chalk/70 backdrop-blur-xl">
         <Container className="flex h-16 items-center justify-between">
           <Link href="/" className="focus-ring">
             <Logo />
@@ -43,7 +44,7 @@ export default function StepShell({
             Step {step + 1} of {totalSteps}
           </p>
         </Container>
-        <div className="h-1 w-full bg-chalk-dim">
+        <div className="h-1 w-full bg-white/5">
           <div
             className="h-full bg-indigo transition-all duration-500 ease-out"
             style={{ width: `${progress}%` }}
@@ -51,8 +52,8 @@ export default function StepShell({
         </div>
       </div>
 
-      <Container className="flex min-h-[calc(100vh-4.25rem)] max-w-2xl flex-col justify-center py-16">
-        <div className="animate-rise">
+      <Container className="relative flex min-h-[calc(100vh-4.25rem)] max-w-2xl flex-col justify-center py-16">
+        <div className="animate-rise rounded-3xl border border-white/10 bg-[#101626]/70 p-6 shadow-2xl shadow-black/20 backdrop-blur-sm sm:p-10">
           <h1 className="font-display text-3xl sm:text-4xl text-balance">{title}</h1>
           {subtitle && <p className="mt-2 text-ink-soft">{subtitle}</p>}
           <div className="mt-9">{children}</div>

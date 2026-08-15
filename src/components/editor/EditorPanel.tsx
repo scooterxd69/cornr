@@ -21,7 +21,7 @@ function Field({ label, children }: { label: string; children: ReactNode }) {
 }
 
 const inputClass =
-  "w-full rounded-[4px] border border-ink/15 bg-white px-3 py-2 text-sm focus-ring";
+  "w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-sm text-ink placeholder:text-ink-soft/50 focus-ring";
 
 export default function EditorPanel({ spec, onChange }: EditorPanelProps) {
   const update = (patch: Partial<SiteSpec>) => onChange({ ...spec, ...patch });
@@ -59,7 +59,7 @@ export default function EditorPanel({ spec, onChange }: EditorPanelProps) {
               onClick={() => updateSite({ theme: t.id })}
               aria-pressed={spec.site.theme === t.id}
               className={`rounded-[6px] border p-2.5 text-left transition-colors focus-ring ${
-                spec.site.theme === t.id ? "border-ink" : "border-ink/15 hover:border-ink/40"
+                spec.site.theme === t.id ? "border-indigo ring-1 ring-indigo/40" : "border-white/10 hover:border-white/30"
               }`}
               style={{ background: t.bg }}
             >
@@ -176,7 +176,7 @@ export default function EditorPanel({ spec, onChange }: EditorPanelProps) {
         </div>
         <div className="space-y-3">
           {spec.projects.map((p, i) => (
-            <div key={i} className="rounded-[6px] border border-ink/15 p-3">
+            <div key={i} className="rounded-xl border border-white/10 bg-white/[.025] p-3">
               <div className="flex items-start gap-2">
                 <div className="flex-1 space-y-2">
                   <input
@@ -217,7 +217,7 @@ export default function EditorPanel({ spec, onChange }: EditorPanelProps) {
         <LinksEditor links={spec.socials} onChange={(socials) => update({ socials })} />
       </div>
 
-      <div className="rounded-[6px] border border-dashed border-ink/20 p-4 text-xs text-ink-soft">
+      <div className="rounded-xl border border-dashed border-white/20 bg-white/[.025] p-4 text-xs text-ink-soft">
         <ImageOff size={14} className="mb-1.5" />
         Photo uploads aren&apos;t part of this MVP yet — there&apos;s no file storage
         wired up. The architecture leaves room for it once accounts and hosting land.

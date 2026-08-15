@@ -15,15 +15,15 @@ export default function ExamplesPage() {
   return (
     <>
       <Navbar />
-      <section className="py-16 sm:py-20">
+      <section className="relative overflow-hidden py-24 sm:py-32">
+        <div className="ambient-grid pointer-events-none absolute inset-0 opacity-50" />
         <Container>
           <Eyebrow>Examples</Eyebrow>
           <h1 className="font-display text-4xl sm:text-5xl text-balance max-w-xl">
-            Seven people. Seven very different websites.
+            Three people. Three entirely different corners.
           </h1>
           <p className="mt-4 max-w-md text-ink-soft">
-            Every one of these came from the same short onboarding flow you&apos;ll go
-            through — the AI just made different calls based on who was in front of it.
+            Fictional demo profiles, all created from the same Cornr flow. Each preview has its own visual language, pace and point of view.
           </p>
           <div className="mt-8">
             <LinkButton href="/create" variant="coral">
@@ -33,7 +33,7 @@ export default function ExamplesPage() {
         </Container>
       </section>
 
-      <div className="space-y-16 pb-20">
+      <div className="space-y-20 pb-28">
         {DEMO_PROFILES.map((demo) => {
           const theme = THEMES[demo.spec.site.theme];
           return (
@@ -48,7 +48,7 @@ export default function ExamplesPage() {
                   </div>
                 </div>
               </Container>
-              <div className="overflow-hidden border-y border-ink/10">
+              <div className="overflow-hidden border-y border-white/10 bg-black/20 shadow-[0_30px_80px_rgba(0,0,0,.28)] sm:rounded-2xl sm:border">
                 <SiteRenderer spec={demo.spec} />
               </div>
             </div>

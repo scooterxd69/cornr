@@ -5,19 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        chalk: "#F4F5F0",
-        "chalk-dim": "#EAEAE2",
-        ink: "#14161C",
-        "ink-soft": "#3A3D46",
+        chalk: "#080B14",
+        "chalk-dim": "#101626",
+        ink: "#F2F5FF",
+        "ink-soft": "#A3AEC5",
         indigo: {
-          DEFAULT: "#4F46E5",
-          soft: "#EEEDFC"
+          DEFAULT: "#8294FF",
+          soft: "#20295A"
         },
         coral: {
-          DEFAULT: "#FF6B4A",
-          soft: "#FFE6DE"
+          DEFAULT: "#F09373",
+          soft: "#46261F"
         },
-        moss: "#6B7A5E"
+        moss: "#8AAE9A"
       },
       fontFamily: {
         display: ["var(--font-display)"],
@@ -38,7 +38,9 @@ const config: Config = {
         }
       },
       animation: {
-        rise: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both"
+        rise: "rise 0.6s cubic-bezier(0.16,1,0.3,1) both",
+        float: "float 10s ease-in-out infinite",
+        orbit: "orbit 18s linear infinite"
       }
     }
   },

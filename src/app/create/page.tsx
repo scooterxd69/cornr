@@ -105,7 +105,7 @@ export default function CreatePage() {
             autoFocus
             value={form.name}
             onChange={(e) => patch({ name: e.target.value })}
-            placeholder="Naitik Rao"
+            placeholder="Naitik"
             maxLength={80}
             className="w-full border-b-2 border-ink/20 bg-transparent py-3 font-display text-2xl focus:border-indigo focus-ring outline-none"
           />

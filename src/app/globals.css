@@ -31,15 +31,31 @@ html {
 }
 
 body {
-  background-color: #f4f5f0;
-  color: #14161c;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 18% -5%, rgba(107, 124, 255, 0.18), transparent 32rem),
+    radial-gradient(circle at 90% 18%, rgba(94, 221, 193, 0.09), transparent 28rem),
+    #080b14;
+  color: #f2f5ff;
   font-family: var(--font-body);
 }
 
 ::selection {
-  background: #4f46e5;
-  color: #f4f5f0;
+  background: #8294ff;
+  color: #080b14;
 }
+
+.ambient-grid {
+  background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+.depth-card { transform-style: preserve-3d; }
+.depth-card > * { transform: translateZ(18px); }
+
+@keyframes float { 0%,100% { transform: translate3d(0, 0, 0) rotate(-2deg); } 50% { transform: translate3d(0, -14px, 0) rotate(2deg); } }
+@keyframes orbit { to { transform: rotate(360deg); } }
 
 /* Signature element: the folded corner. A literal dog-eared page corner used
    throughout the brand (nav mark, cards, hero device frame) — it's the visual

@@ -141,8 +141,8 @@ export default function StudioPage() {
   const width = VIEWPORT_WIDTHS[viewport];
 
   return (
-    <div className="flex min-h-screen flex-col bg-chalk-dim">
-      <header className="border-b border-ink/10 bg-chalk">
+    <div className="flex min-h-screen flex-col bg-chalk-dim text-ink">
+      <header className="border-b border-white/10 bg-chalk/80 backdrop-blur-xl">
         <div className="flex h-16 items-center justify-between gap-4 px-4 sm:px-6">
           <Logo className="hidden sm:flex" />
 
@@ -152,7 +152,7 @@ export default function StudioPage() {
               onClick={() => setTab("preview")}
               aria-pressed={tab === "preview"}
               className={`inline-flex items-center gap-1.5 rounded-[4px] px-3 py-2 text-sm focus-ring ${
-                tab === "preview" ? "bg-ink text-chalk" : "text-ink-soft hover:text-ink"
+                tab === "preview" ? "bg-white/10 text-ink" : "text-ink-soft hover:text-ink"
               }`}
             >
               <Eye size={14} /> Preview
@@ -162,7 +162,7 @@ export default function StudioPage() {
               onClick={() => setTab("edit")}
               aria-pressed={tab === "edit"}
               className={`inline-flex items-center gap-1.5 rounded-[4px] px-3 py-2 text-sm focus-ring ${
-                tab === "edit" ? "bg-ink text-chalk" : "text-ink-soft hover:text-ink"
+                tab === "edit" ? "bg-white/10 text-ink" : "text-ink-soft hover:text-ink"
               }`}
             >
               <Pencil size={14} /> Edit
@@ -216,9 +216,9 @@ export default function StudioPage() {
       )}
 
       <div className="flex flex-1 flex-col md:flex-row">
-        <div className="flex flex-1 justify-center overflow-auto p-4 sm:p-8">
+        <div className="flex flex-1 justify-center overflow-auto bg-[radial-gradient(circle_at_50%_0%,rgba(130,148,255,.12),transparent_40%)] p-4 sm:p-8">
           <div
-            className="h-fit overflow-hidden rounded-[10px] border border-ink/10 bg-white shadow-lg transition-all duration-300"
+            className="h-fit overflow-hidden rounded-2xl border border-white/15 bg-white shadow-[0_24px_80px_rgba(0,0,0,.45)] transition-all duration-300"
             style={{ width: "100%", maxWidth: width }}
           >
             <SiteRenderer spec={spec} />
@@ -226,7 +226,7 @@ export default function StudioPage() {
         </div>
 
         {tab === "edit" && (
-          <aside className="w-full border-t border-ink/10 bg-chalk p-5 sm:p-6 md:w-[380px] md:border-l md:border-t-0">
+          <aside className="w-full border-t border-white/10 bg-chalk p-5 sm:p-6 md:w-[380px] md:border-l md:border-t-0">
             <div className="mb-6">
               <AiCommandBox onSubmit={applyEdit} disabled={busy !== null} />
             </div>
