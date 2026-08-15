@@ -3,7 +3,7 @@ import { Logo, Container, LinkButton } from "@/components/ui/atoms";
 
 export default function Navbar() {
   return (
-    <div className="sticky top-3 z-40 mx-auto w-[calc(100%-1.5rem)] max-w-6xl rounded-2xl border border-white/10 bg-chalk/75 shadow-2xl shadow-black/25 backdrop-blur-xl">
+    <div className="sticky top-3 z-40 mx-auto w-[calc(100%-1.5rem)] max-w-6xl rounded-2xl border border-white/10 bg-chalk/85 shadow-2xl shadow-black/35 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between">
         <Link href="/" className="focus-ring">
           <Logo />

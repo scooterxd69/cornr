@@ -3,24 +3,24 @@ import Link from "next/link";
 
 export function Logo({ className = "" }: { className?: string }) {
   return (
-    <span className={`inline-flex items-center gap-2 font-display text-lg ${className}`}>
+    <span className={`inline-flex items-center gap-2 font-display text-xl font-semibold tracking-[-.06em] ${className}`}>
       <span
-        className="corner-fold inline-block h-5 w-5 bg-ink"
+        className="corner-fold inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/10 bg-gradient-to-br from-white/15 to-white/5 font-sans text-lg font-black text-ink shadow-lg"
         aria-hidden="true"
-      />
-      cornr
+      >C</span>
+      <span>CorN<span className="text-coral">r</span></span>
     </span>
   );
 }
 
 const baseButton =
-  "inline-flex items-center justify-center gap-2 rounded-[4px] px-6 py-3 text-sm font-medium transition-all duration-200 focus-ring disabled:opacity-50 disabled:pointer-events-none";
+  "inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-300 focus-ring disabled:pointer-events-none disabled:opacity-50";
 
 const variants = {
-  primary: "bg-ink text-chalk hover:bg-ink-soft",
-  coral: "bg-coral text-chalk hover:brightness-105 shadow-[3px_3px_0_0_#14161C]",
-  ghost: "bg-transparent text-ink border border-ink/20 hover:border-ink/50",
-  soft: "bg-indigo-soft text-indigo hover:bg-indigo/10"
+  primary: "bg-coral text-[#111111] shadow-[0_10px_24px_rgba(255,201,72,.16)] hover:-translate-y-0.5 hover:brightness-105",
+  coral: "bg-coral text-[#111111] shadow-[0_10px_24px_rgba(255,201,72,.16)] hover:-translate-y-0.5 hover:brightness-105",
+  ghost: "border border-white/15 bg-white/[.035] text-ink shadow-[inset_0_1px_0_rgba(255,255,255,.06)] hover:-translate-y-0.5 hover:border-coral/50 hover:bg-white/[.07]",
+  soft: "bg-indigo-soft text-coral hover:bg-indigo/10"
 };
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

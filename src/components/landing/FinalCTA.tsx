@@ -2,8 +2,8 @@ import { Container, LinkButton } from "@/components/ui/atoms";
 
 export default function FinalCTA() {
   return (
-    <section className="border-t border-ink/10 py-24 sm:py-32">
-      <Container className="text-center">
+    <section className="border-t border-white/10 py-24 sm:py-32">
+      <Container className="glossy-surface rounded-[2rem] py-14 text-center sm:py-20">
         <h2 className="mx-auto max-w-xl font-display text-3xl sm:text-5xl text-balance">
           Turn yourself into a website.
         </h2>

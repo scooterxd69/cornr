@@ -8,7 +8,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="border-t border-ink/10 py-24 sm:py-32">
+    <section id="how-it-works" className="border-t border-white/10 py-24 sm:py-32">
       <Container>
         <div className="mb-16 max-w-lg">
           <Eyebrow>How it works</Eyebrow>
@@ -18,7 +18,7 @@ export default function HowItWorks() {
         </div>
         <div className="grid gap-10 sm:grid-cols-3">
           {steps.map((step, i) => (
-            <div key={step.title} className="border-t-2 border-ink pt-5">
+            <div key={step.title} className="rounded-2xl border border-white/10 bg-white/[.025] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-coral/40">
               <p className="font-mono text-xs text-ink-soft">{String(i + 1).padStart(2, "0")}</p>
               <h3 className="mt-2 font-display text-xl">{step.title}</h3>
               <p className="mt-1.5 text-sm text-ink-soft">{step.detail}</p>

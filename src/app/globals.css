@@ -33,16 +33,16 @@ html {
 body {
   min-width: 320px;
   background:
-    radial-gradient(circle at 18% -5%, rgba(107, 124, 255, 0.18), transparent 32rem),
-    radial-gradient(circle at 90% 18%, rgba(94, 221, 193, 0.09), transparent 28rem),
-    #080b14;
-  color: #f2f5ff;
+    radial-gradient(circle at 18% -5%, rgba(255, 201, 72, 0.10), transparent 32rem),
+    radial-gradient(circle at 90% 18%, rgba(120, 194, 160, 0.07), transparent 28rem),
+    #111111;
+  color: #fafafa;
   font-family: var(--font-body);
 }
 
 ::selection {
-  background: #8294ff;
-  color: #080b14;
+  background: #ffc948;
+  color: #111111;
 }
 
 .ambient-grid {
@@ -53,6 +53,15 @@ body {
 
 .depth-card { transform-style: preserve-3d; }
 .depth-card > * { transform: translateZ(18px); }
+
+.glossy-surface {
+  background: linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,.025));
+  border: 1px solid rgba(255,255,255,.12);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 20px 54px rgba(0,0,0,.28);
+  backdrop-filter: blur(14px);
+}
+
+.glossy-surface:hover { border-color: rgba(255,201,72,.45); box-shadow: inset 0 1px 0 rgba(255,255,255,.13), 0 24px 64px rgba(0,0,0,.4), 0 0 0 1px rgba(255,201,72,.08); }
 
 @keyframes float { 0%,100% { transform: translate3d(0, 0, 0) rotate(-2deg); } 50% { transform: translate3d(0, -14px, 0) rotate(2deg); } }
 @keyframes orbit { to { transform: rotate(360deg); } }

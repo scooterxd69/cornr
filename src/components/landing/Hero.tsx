@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative isolate overflow-hidden pt-24 pb-24 sm:pt-32 sm:pb-36">
       <div className="ambient-grid pointer-events-none absolute inset-0 -z-10 opacity-60" />
-      <div className="pointer-events-none absolute left-[8%] top-32 -z-10 h-64 w-64 rounded-full bg-indigo/20 blur-[110px] animate-pulse" />
+      <div className="pointer-events-none absolute left-[8%] top-32 -z-10 h-64 w-64 rounded-full bg-coral/15 blur-[110px] animate-pulse" />
       <div className="pointer-events-none absolute right-[7%] top-20 -z-10 h-48 w-48 rounded-full bg-teal-300/10 blur-[100px]" />
       <Container className="grid gap-14 sm:grid-cols-2 sm:items-center">
         <div className="animate-rise">
@@ -39,7 +39,7 @@ export default function Hero() {
               className="depth-card absolute inset-0 overflow-hidden rounded-2xl border border-white/15 shadow-[0_32px_100px_rgba(0,0,0,.55)] animate-float"
               style={{
                 background:
-                  "linear-gradient(145deg, #1f2c6f 0%, #11162d 46%, #080b14 100%)"
+                  "linear-gradient(145deg, #3a311b 0%, #1b1b18 46%, #111111 100%)"
               }}
             >
               <div className="flex h-full flex-col justify-end p-6 text-chalk">
@@ -72,7 +72,7 @@ export default function Hero() {
                   <div className="h-2.5 w-5/6 rounded-full bg-white/10" />
                 </div>
               </div>
-              <div className="corner-fold h-10 w-10 self-end rounded-tl-2xl bg-indigo/30" />
+              <div className="corner-fold h-10 w-10 self-end rounded-tl-2xl bg-coral/30" />
             </div>
           </div>
           <p className="mt-4 text-center text-xs text-ink-soft/70">

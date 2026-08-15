@@ -3,7 +3,7 @@ import { Container, Logo } from "@/components/ui/atoms";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-ink/10 py-12">
+    <footer className="border-t border-white/10 py-12">
       <Container className="flex flex-col items-center justify-between gap-6 sm:flex-row">
         <Logo />
         <nav className="flex gap-6 text-sm text-ink-soft">

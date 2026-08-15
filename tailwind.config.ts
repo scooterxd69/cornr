@@ -5,19 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        chalk: "#080B14",
-        "chalk-dim": "#101626",
-        ink: "#F2F5FF",
-        "ink-soft": "#A3AEC5",
+        chalk: "#111111",
+        "chalk-dim": "#171B22",
+        ink: "#FAFAFA",
+        "ink-soft": "#B8C1CF",
         indigo: {
-          DEFAULT: "#8294FF",
-          soft: "#20295A"
+          DEFAULT: "#FFC948",
+          soft: "#3A311B"
         },
         coral: {
-          DEFAULT: "#F09373",
-          soft: "#46261F"
+          DEFAULT: "#FFC948",
+          soft: "#3A311B"
         },
-        moss: "#8AAE9A"
+        moss: "#78C2A0"
       },
       fontFamily: {
         display: ["var(--font-display)"],

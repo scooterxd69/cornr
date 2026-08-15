@@ -23,6 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 build.log
 dev.log
+visual-dev.log
 install.log
 .npm-cache/
 

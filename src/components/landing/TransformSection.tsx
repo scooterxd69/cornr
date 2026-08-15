@@ -18,7 +18,7 @@ const steps = [
 
 export default function TransformSection() {
   return (
-    <section className="border-t border-ink/10 py-24 sm:py-32">
+    <section className="border-t border-white/10 py-24 sm:py-32">
       <Container>
         <div className="mb-16 max-w-lg">
           <Eyebrow>From your story to your website</Eyebrow>
@@ -30,7 +30,7 @@ export default function TransformSection() {
         <div className="mx-auto flex max-w-md flex-col items-stretch">
           {steps.map((step, i) => (
             <div key={step.label}>
-              <div className="rounded-corner border border-ink/10 bg-white/60 p-6">
+              <div className="glossy-surface rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1">
                 <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-indigo">
                   {String(i + 1).padStart(2, "0")}
                 </p>
