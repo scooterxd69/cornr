@@ -1,85 +1,34 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+import { FormEvent, useState } from "react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import { Container, LinkButton } from "@/components/ui/atoms";
 
+const SUGGESTIONS = ["I'm a developer...", "I'm a photographer...", "I'm a therapist...", "I'm a creator..."];
+
 export default function Hero() {
-  return (
-    <section className="relative isolate overflow-hidden pt-24 pb-24 sm:pt-32 sm:pb-36">
-      <div className="ambient-grid pointer-events-none absolute inset-0 -z-10 opacity-60" />
-      <div className="pointer-events-none absolute left-[8%] top-32 -z-10 h-64 w-64 rounded-full bg-coral/15 blur-[110px] animate-pulse" />
-      <div className="pointer-events-none absolute right-[7%] top-20 -z-10 h-48 w-48 rounded-full bg-teal-300/10 blur-[100px]" />
-      <Container className="grid gap-14 sm:grid-cols-2 sm:items-center">
-        <div className="animate-rise">
-          <p className="mb-5 font-mono text-xs uppercase tracking-[0.28em] text-indigo">
-            Personal sites, amplified by AI
-          </p>
-          <h1 className="text-balance font-display text-[2.6rem] leading-[1.05] sm:text-6xl">
-            Build your corner
-            <br />of the internet.
-          </h1>
-          <p className="mt-6 max-w-md text-lg text-ink-soft">
-            Tell us who you are. Cornr turns your story into a living, personal website — designed around your energy.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-4">
-            <LinkButton href="/create" variant="coral">
-              Create My Website
-            </LinkButton>
-            <LinkButton href="/examples" variant="ghost">
-              Explore Examples
-            </LinkButton>
-          </div>
-          <p className="mt-6 text-xs text-ink-soft/70">
-            Portfolio or vibe. Your corner, your rules.
-          </p>
+  const router = useRouter();
+  const [story, setStory] = useState("");
+  const submit = (event: FormEvent) => { event.preventDefault(); router.push(`/create?story=${encodeURIComponent(story)}`); };
+  return <section className="relative isolate overflow-hidden pb-24 pt-24 sm:pb-32 sm:pt-32">
+    <div className="ambient-grid pointer-events-none absolute inset-0 -z-10 opacity-50" />
+    <div className="pointer-events-none absolute left-[6%] top-24 -z-10 h-72 w-72 rounded-full bg-coral/15 blur-[120px] animate-pulse" />
+    <div className="pointer-events-none absolute right-[5%] top-16 -z-10 h-80 w-80 rounded-full border border-coral/20 [transform:rotateX(62deg)_rotateZ(-25deg)] animate-[orbit_18s_linear_infinite]" />
+    <Container className="relative text-center">
+      <p className="mb-6 font-mono text-[11px] font-semibold uppercase tracking-[.24em] text-coral"><Sparkles className="mr-2 inline" size={13} />Your personal internet</p>
+      <h1 className="mx-auto max-w-4xl font-sans text-5xl font-semibold leading-[.96] tracking-[-.065em] text-ink sm:text-7xl lg:text-8xl">Your story.<br /><span className="text-coral">Your corner.</span></h1>
+      <p className="mx-auto mt-7 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">Tell us about yourself. Cornr turns your story into a website that actually feels like you.</p>
+      <form onSubmit={submit} className="glossy-surface relative mx-auto mt-11 max-w-3xl overflow-hidden rounded-3xl p-2 text-left shadow-[0_30px_90px_rgba(0,0,0,.55)]">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-coral/80 to-transparent" />
+        <label className="block px-5 pt-4 text-sm font-medium text-ink">Tell us about yourself...</label>
+        <textarea value={story} onChange={(e) => setStory(e.target.value)} placeholder="I'm a student who loves coding, music, photography and building cool things..." className="min-h-28 w-full resize-none bg-transparent px-5 py-3 text-base text-ink outline-none placeholder:text-ink-soft/65" maxLength={2000} />
+        <div className="flex flex-col gap-3 border-t border-white/10 p-3 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap gap-2">{SUGGESTIONS.map((suggestion) => <button key={suggestion} type="button" onClick={() => setStory(suggestion.replace("...", ""))} className="rounded-full border border-white/10 bg-white/[.035] px-3 py-1.5 text-xs text-ink-soft transition hover:border-coral/50 hover:text-ink">{suggestion}</button>)}</div>
+          <button type="submit" className="inline-flex items-center justify-center gap-2 rounded-xl bg-coral px-5 py-3 text-sm font-semibold text-[#050507] shadow-[0_8px_25px_rgba(250,204,21,.2)] transition hover:-translate-y-0.5 hover:bg-[#fde68a]">Create My Corner <ArrowRight size={16} /></button>
         </div>
-
-        <div className="relative mx-auto w-full max-w-md [perspective:1200px]">
-          {/* The corner-fold reveal: a blank "story" card peels back to show the
-              generated site underneath — the literal brand metaphor in motion. */}
-          <div className="relative aspect-[4/5]">
-            <div
-              className="depth-card absolute inset-0 overflow-hidden rounded-2xl border border-white/15 shadow-[0_32px_100px_rgba(0,0,0,.55)] animate-float"
-              style={{
-                background:
-                  "linear-gradient(145deg, #3a311b 0%, #1b1b18 46%, #111111 100%)"
-              }}
-            >
-              <div className="flex h-full flex-col justify-end p-6 text-chalk">
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-indigo">
-                  Your website / live
-                </p>
-                <p className="mt-2 font-display text-2xl leading-tight">
-                  Naitik — building ideas with curious people.
-                </p>
-                <div className="mt-4 flex gap-1.5">
-                  <span className="h-1.5 w-8 rounded-full bg-chalk/70" />
-                  <span className="h-1.5 w-4 rounded-full bg-chalk/40" />
-                  <span className="h-1.5 w-4 rounded-full bg-chalk/40" />
-                </div>
-              </div>
-            </div>
-
-            <div
-              className="absolute inset-0 flex origin-top-right -rotate-[10deg] flex-col justify-between rounded-2xl border border-white/10 bg-[#111827]/95 p-6 shadow-xl transition-transform duration-500 ease-out hover:-rotate-[16deg]"
-              style={{ transformOrigin: "88% 8%" }}
-            >
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink-soft">
-                  your story → AI → site
-                </p>
-                <div className="mt-4 space-y-2">
-                  <div className="h-2.5 w-3/4 rounded-full bg-white/10" />
-                  <div className="h-2.5 w-full rounded-full bg-white/10" />
-                  <div className="h-2.5 w-2/3 rounded-full bg-white/10" />
-                  <div className="h-2.5 w-5/6 rounded-full bg-white/10" />
-                </div>
-              </div>
-              <div className="corner-fold h-10 w-10 self-end rounded-tl-2xl bg-coral/30" />
-            </div>
-          </div>
-          <p className="mt-4 text-center text-xs text-ink-soft/70">
-            A dimensional corner, shaped around you.
-          </p>
-        </div>
-      </Container>
-    </section>
-  );
+      </form>
+      <div className="mt-7 flex justify-center"><LinkButton href="/examples" variant="ghost">Explore examples</LinkButton></div>
+    </Container>
+  </section>;
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Briefcase, Sparkles, ChevronDown } from "lucide-react";
 import StepShell from "@/components/onboarding/StepShell";
 import ChipSelect from "@/components/onboarding/ChipSelect";
@@ -30,6 +30,7 @@ type Status = "editing" | "generating" | "error";
 
 export default function CreatePage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { setSpec, setLastInput } = useSite();
 
   const [step, setStep] = useState(0);
@@ -39,7 +40,7 @@ export default function CreatePage() {
 
   const [form, setForm] = useState<OnboardingInput>({
     name: "",
-    about: "",
+    about: searchParams.get("story") ?? "",
     interests: [],
     achievements: "",
     links: [],
@@ -129,7 +130,7 @@ export default function CreatePage() {
             placeholder="I'm a third-year CS student who'd rather be building things than sitting through lectures..."
             maxLength={2000}
             rows={7}
-            className="w-full resize-none rounded-[6px] border border-ink/20 bg-white p-4 text-base focus-ring placeholder:text-ink-soft/60"
+            className="w-full resize-none rounded-xl border border-white/10 bg-white/[.035] p-4 text-base text-ink focus-ring placeholder:text-ink-soft/60"
           />
           <p className="mt-2 text-right text-xs text-ink-soft/60">{form.about.length}/2000</p>
         </StepShell>
@@ -168,7 +169,7 @@ export default function CreatePage() {
             placeholder="1st place campus hackathon, published a paper, hit 10k followers..."
             maxLength={600}
             rows={4}
-            className="w-full resize-none rounded-[6px] border border-ink/20 bg-white p-4 text-base focus-ring placeholder:text-ink-soft/60"
+            className="w-full resize-none rounded-xl border border-white/10 bg-white/[.035] p-4 text-base text-ink focus-ring placeholder:text-ink-soft/60"
           />
 
           <button
@@ -271,7 +272,7 @@ function LabeledInput({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         maxLength={maxLength}
-        className="w-full rounded-[4px] border border-ink/20 bg-white px-3.5 py-2.5 text-sm focus-ring"
+        className="w-full rounded-xl border border-white/10 bg-white/[.035] px-3.5 py-2.5 text-sm text-ink focus-ring"
       />
     </label>
   );
@@ -296,7 +297,7 @@ function ModeCard({
       onClick={onClick}
       aria-pressed={active}
       className={`rounded-[8px] border p-6 text-left transition-colors focus-ring ${
-        active ? "border-ink bg-ink text-chalk" : "border-ink/20 hover:border-ink/50"
+        active ? "border-coral bg-coral/10 text-ink shadow-[0_0_26px_rgba(250,204,21,.12)]" : "border-white/10 bg-white/[.02] hover:border-coral/50"
       }`}
     >
       <Icon size={22} aria-hidden="true" />

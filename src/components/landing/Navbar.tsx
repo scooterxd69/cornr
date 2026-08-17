@@ -18,10 +18,11 @@ export default function Navbar() {
           <Link href="/#how-it-works" className="text-sm text-ink-soft hover:text-ink focus-ring">
             How it works
           </Link>
+          <Link href="/#pricing" className="text-sm text-ink-soft hover:text-ink focus-ring">
+            Pricing
+          </Link>
         </nav>
-        <LinkButton href="/create" variant="coral" className="text-xs sm:text-sm px-4 sm:px-6 py-2.5 shadow-lg shadow-coral/20">
-          Create Website
-        </LinkButton>
+        <div className="flex items-center gap-3"><Link href="/login" className="hidden text-sm text-ink-soft hover:text-ink sm:block">Login</Link><LinkButton href="/create" variant="coral" className="text-xs sm:text-sm px-4 sm:px-6 py-2.5 shadow-lg shadow-coral/20">Create My Corner</LinkButton></div>
       </Container>
     </div>
   );
