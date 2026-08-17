@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Briefcase, Sparkles, ChevronDown } from "lucide-react";
 import StepShell from "@/components/onboarding/StepShell";
@@ -28,7 +28,7 @@ const TOTAL_STEPS = 7;
 
 type Status = "editing" | "generating" | "error";
 
-export default function CreatePage() {
+function CreatePageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { setSpec, setLastInput } = useSite();
@@ -251,6 +251,16 @@ export default function CreatePage() {
         </StepShell>
       )}
     </>
+  );
+}
+
+export default function CreatePage() {
+  return (
+    <Suspense
+      fallback={<div className="min-h-screen bg-chalk" aria-label="Loading create flow" />}
+    >
+      <CreatePageContent />
+    </Suspense>
   );
 }
 
